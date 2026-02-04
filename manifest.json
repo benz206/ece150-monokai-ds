@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "ECE150 Catppuccin Mocha DS",
-  "version": "1.0",
+  "name": "ECE150/ECE204 Catppuccin Mocha",
+  "version": "1.0.0",
   "description": "Catppuccin Mocha theme for ECE150 and ECE204 lecture materials",
   "permissions": ["activeTab", "scripting"],
   "content_scripts": [
