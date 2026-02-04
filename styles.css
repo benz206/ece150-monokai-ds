@@ -43,6 +43,10 @@ body {
   color: var(--accent) !important;
 }
 
+#contentarea h2 {
+  color: var(--accent) !important;
+}
+
 tbody,
 table {
   border-spacing: 0 !important;
@@ -56,9 +60,8 @@ th {
 }
 
 td:first-child {
-  display: flex;
-  align-content: center;
-  justify-content: center;
+  text-align: left;
+  vertical-align: middle;
   color: var(--ctp-red) !important;
   font-weight: 700 !important;
 }
@@ -230,6 +233,8 @@ a {
   display: flex;
   align-items: center;
   gap: 8px;
+  flex-direction: row-reverse;
+  transition: transform 180ms ease;
 }
 
 .accent-toggle {
@@ -241,10 +246,16 @@ a {
   cursor: pointer;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
   padding: 0;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.accent-toggle:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4);
 }
 
 .accent-panel {
-  display: none;
+  display: flex;
   background: var(--ctp-mantle);
   border: 1px solid var(--ctp-surface2);
   border-radius: 10px;
@@ -254,10 +265,20 @@ a {
   gap: 8px;
   font-size: 12px;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  transform: translateX(-8px) scale(0.98);
+  pointer-events: none;
+  transition: opacity 180ms ease, transform 180ms ease;
 }
 
 .accent-fab.open .accent-panel {
-  display: flex;
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  pointer-events: auto;
+}
+
+.accent-fab.open .accent-toggle {
+  transform: scale(0.96);
 }
 
 .accent-panel label {

@@ -1,7 +1,9 @@
-document.querySelectorAll("tr td:first-child").forEach((td, index) => {
-  let lessonNumber = parseInt(td.textContent, 10);
+const lessonKeyPrefix = `lsn_${location.pathname}_`;
 
-  if (!isNaN(lessonNumber)) {
+document.querySelectorAll("tr td:first-child").forEach((td, index) => {
+  const rawLessonNumber = td.textContent.trim();
+
+  if (/^\d+(\.\d+)*$/.test(rawLessonNumber)) {
     td.textContent = "";
 
     const checkbox = document.createElement("input");
@@ -9,7 +11,7 @@ document.querySelectorAll("tr td:first-child").forEach((td, index) => {
     checkbox.classList.add("custom-cb");
 
     // for lessons
-    const checkboxKey = `lsn_${index}`;
+    const checkboxKey = `${lessonKeyPrefix}${index}`;
 
     const savedState = localStorage.getItem(checkboxKey);
 
@@ -26,7 +28,7 @@ document.querySelectorAll("tr td:first-child").forEach((td, index) => {
       }
     });
 
-    const lessonText = document.createTextNode(lessonNumber);
+    const lessonText = document.createTextNode(rawLessonNumber);
 
     td.appendChild(checkbox);
     td.appendChild(lessonText);
