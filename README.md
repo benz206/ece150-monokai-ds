@@ -1,6 +1,6 @@
-# ECE150 Monokai DS
+# ECE150 Catppuccin Mocha DS
 
-I made this so I can pass ECE150, it puts a checkmark when I finish a module and it's exercises.
+I made this so I can pass ECE150, it puts a checkmark when I finish a module and its exercises, and it now supports the ECE204 lecture materials page.
 
 ![Preview](https://i.imgur.com/vUA10SV.png)
 
